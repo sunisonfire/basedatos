@@ -1,0 +1,53 @@
+mysql -u campus2023 -p
+show databases;
+create database examen_danna;
+use examen_danna;
+-- create
+CREATE TABLE cliente (
+  id int not null auto_increment,
+  nombre varchar(50) not null,
+  telefono varchar(10) not null,
+  correo varchar(70) not null,
+  primary key(id)
+);
+
+CREATE TABLE medio_pago (
+  id int not null auto_increment,
+  tipo enum('tarjeta','efectivo','nequi') not null,
+  primary key(id)
+);
+
+CREATE TABLE sala (
+  id int not null auto_increment,
+  nombre enum('sala 1','sala 2') not null,
+  capacidad enum('100', '80') not null,
+  primary key(id)
+);
+
+CREATE TABLE pelicula (
+  id int not null auto_increment,
+  tipo enum('inception','the lion king') not null,
+  genero enum('Sci-fi', 'Animacion') not null,
+  duracion enum('148', '88') not null,
+  clasificacion enum('PG-13', 'G') not null,
+  sala_fk varchar(2)
+  primary key(id),
+  foreign key(sala_fk) references sala(id)
+);
+
+CREATE TABLE precio (
+  id int not null auto_increment,
+  monto vachar(6),
+  primary key(id)
+);
+
+
+CREATE TABLE funcion (
+  id int not null auto_increment,
+  fecha date not null,
+  hora varchar(5) not null,
+  clientes_fk varchar(50),
+  mediopago_fk varchar(50),
+  primary key(id),
+  foreign key(sala_fk) references sala(id)
+);

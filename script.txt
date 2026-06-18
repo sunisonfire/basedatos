@@ -51,3 +51,7 @@ CREATE TABLE funcion (
   primary key(id),
   foreign key(sala_fk) references sala(id)
 );
+
+insert into cliente (nombre, telefono, correo) values ('Anna Lopez','3120001111', 'ana.lopez@email.com');
+insert into cliente (nombre, telefono, correo) values ('Carlos Martinez','3105552222', 'carlos.m@email.com');
+insert into cliente (nombre, telefono, correo) values ('Pedro Gomez','3137773333', 'pedro.gomez@email.com');
